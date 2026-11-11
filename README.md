@@ -4,6 +4,8 @@
 
 Visualizador educativo de modulación digital: **ASK, FSK, PSK y QAM**.
 
+**En línea: <https://brunov.tech/tools/digimod/>**
+
 Escribís un mensaje y la app muestra toda la cadena:
 
 1. **Mensaje → bits** (UTF-8, por carácter).
@@ -26,6 +28,13 @@ npm run dev      # servidor de desarrollo
 npm test         # pruebas
 npm run build    # build estático en dist/
 ```
+
+## Publicación
+
+- Cada push a `main` corre las pruebas, compila y publica en GitHub Pages (`.github/workflows/deploy.yml`).
+- `cloudflare/worker.js` es un Cloudflare Worker en la ruta `brunov.tech/tools/digimod*` que reenvía
+  esas peticiones a GitHub Pages, así la app se sirve en <https://brunov.tech/tools/digimod/>.
+  Se despliega con `npx wrangler deploy --config cloudflare/wrangler.toml`.
 
 ## Modelo
 
